@@ -28,7 +28,7 @@
 	.logo{
 		width: 44px;
 		height: 27px;
-		background-image: url(image/logo.jpg);
+		background-image: url(logo.jpg);
 		background-size: contain;
 	}
 	.menu-toggler{
@@ -64,7 +64,7 @@
 		padding: 18px 0;
 	}
 	.sticky .logo{
-		background-image: url(image/manluo.png);
+		background-image: url(manluo.png);
 	}
 	.sticky .navbar-menu a{
 		color: #111;
@@ -75,7 +75,7 @@
 	#home{
 		height: 150vh;
 		min-height: 500px;
-		background:url(image/bd.jpg) no-repeat center;
+		background:url(bd.jpg) no-repeat center;
 		background-size: cover;
 		background-attachment:fixed ;
 	}
