@@ -1,0 +1,287 @@
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		  
+		<title>个人正式介绍</title>
+	    
+		
+		<script src="js/modernizr.custom.js"></script>
+		<style>
+        *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+	background: #fbc73b;
+	font-family: 'Lato', Arial, sans-serif;
+	color: #fff;
+}
+
+.wrapper {
+	margin: 0 auto 100px auto;
+	max-width: 960px;
+}
+
+.stage {
+	list-style: none;
+	padding: 0;
+}
+
+/*************************************
+Build the scene and rotate on hover
+**************************************/
+
+.scene {
+	width: 260px;
+	height: 400px;
+	margin: 30px;
+	float: left;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.movie {
+	width: 260px;
+	height: 400px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateZ(-130px);
+	-moz-transform: translateZ(-130px);
+	transform: translateZ(-130px);
+	-webkit-transition: -webkit-transform 350ms;
+	-moz-transition: -moz-transform 350ms;
+	transition: transform 350ms;
+}
+
+.movie:hover {
+	-webkit-transform: rotateY(-78deg) translateZ(20px);
+	-moz-transform: rotateY(-78deg) translateZ(20px);
+	transform: rotateY(-78deg) translateZ(20px);
+}
+
+/*************************************
+Transform and style the two planes
+**************************************/
+
+.movie .poster, 
+.movie .info {
+	position: absolute;
+	width: 260px;
+	height: 400px;
+	background-color: #fff;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.movie .poster  {
+	-webkit-transform: translateZ(130px);
+	-moz-transform: translateZ(130px);
+	transform: translateZ(130px);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.movie .info {
+	-webkit-transform: rotateY(90deg) translateZ(130px);
+	-moz-transform: rotateY(90deg) translateZ(130px);
+	transform: rotateY(90deg) translateZ(130px);
+	border: 4px solid #fff;
+	font-size: 0.75em;
+}
+
+/*************************************
+Shadow beneath the 3D object
+**************************************/
+
+.csstransforms3d .movie::after {
+	content: '';
+	width: 260px;
+	height: 260px;
+	position: absolute;
+	bottom: 0;
+	box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+	-webkit-transform-origin: 100% 100%;
+	-moz-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+	-webkit-transform: rotateX(90deg) translateY(130px);
+	-moz-transform: rotateX(90deg) translateY(130px);
+	transform: rotateX(90deg) translateY(130px);
+	-webkit-transition: box-shadow 350ms;
+	-moz-transition: box-shadow 350ms;
+	transition: box-shadow 350ms;
+}
+
+.csstransforms3d .movie:hover::after {
+	box-shadow: 20px -5px 50px rgba(0,0,0,0.3);
+}
+
+/*************************************
+Movie information
+**************************************/
+
+.info header {
+	color: #FFF;
+	padding: 7px 10px;
+	font-weight: bold;
+	height: 195px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	text-shadow: 0px 1px 1px rgba(0,0,0,1);
+}
+
+.info header h1 {
+	margin: 0 0 2px;
+	font-size: 1.4em;
+}
+
+.info header .rating {
+	border: 1px solid #FFF;
+	padding: 0px 3px;
+}
+
+.info p {
+	padding: 1.2em 1.4em;
+	margin: 2px 0 0;
+	font-weight: 700;
+	color: #666;
+	line-height: 1.4em;
+	 
+}
+
+/*************************************
+Generate "lighting" using box shadows
+**************************************/
+
+.movie .poster,
+.movie .info,
+.movie .info header {
+	-webkit-transition: box-shadow 350ms;
+	-moz-transition: box-shadow 350ms;
+	transition: box-shadow 350ms;
+}
+
+.csstransforms3d .movie .poster {
+	box-shadow: inset 0px 0px 40px rgba(255,255,255,0);
+}
+
+.csstransforms3d .movie:hover .poster {
+	box-shadow: inset 300px 0px 40px rgba(255,255,255,0.8);
+}
+
+.csstransforms3d .movie .info, 
+.csstransforms3d .movie .info header {
+	box-shadow: inset -300px 0px 20px rgba(0,0,0,0.5);
+}
+
+.csstransforms3d .movie:hover .info, 
+.csstransforms3d .movie:hover .info header {
+	box-shadow: inset 0px 0px 40px rgba(0,0,0,0);
+}
+
+/*************************************
+Posters and still images
+**************************************/
+
+.scene:nth-child(1) .movie .poster {
+  background-image: url(image/pexels-carlos-montelara-6017831.jpg);
+}
+
+.scene:nth-child(2) .poster {
+  background-image: url(image/Hacking.jpg);
+}
+
+.scene:nth-child(3) .poster {
+  background-image: url(image/blue.jpg);
+}
+
+.scene:nth-child(1) .info header {
+	background-image: url(image/Student.jpg);
+	height: 150px;
+}
+
+.scene:nth-child(2) .info header {
+	background-image: url(image/Hacker.jpg);
+	height: 150px;
+}
+
+.scene:nth-child(3) .info header {
+	background-image: url(image/stars.png);
+	height: 120px;
+}
+
+/*************************************
+Fallback
+**************************************/
+.no-csstransforms3d .movie .poster, 
+.no-csstransforms3d .movie .info {
+	position: relative;
+}
+
+/*************************************
+Media Queries
+**************************************/
+@media screen and (max-width: 60.75em){
+	.scene {
+		float: none;
+		margin: 30px auto 60px;
+	}
+}
+
+        
+        </style>
+	</head>
+	<body>
+		<embed src="misc/Fire-Barns_Courtney-6849682.mp3 " autostart="true" loop="true" hidden="true" ></embed>
+		<div class="container">
+			 
+			<div class="wrapper">
+				<ul class="stage clearfix">
+
+					<li class="scene">
+						<div class="movie" onclick="return true">
+							<div class="poster"></div>
+							<div class="info">
+								<header>
+									<h1>学生</h1>
+								</header>
+								<p>
+									学生是我目前扮演的花费时间最多角色，我喜欢学习，尽管我小时候很讨厌学校，但是上完初中之后我又开始怀念初中的生活，而在高中时期，我又是那样的憎恨学校，所以，最重要的是学习，最重要的自己学到什么，与学校和其他人无关，充当决定要素的是你自己，虽然你可以被别人强迫，但是你不可能被别人强迫一辈子，所以我还是很喜欢当一名学生的。
+								</p>
+							</div>
+						</div>
+					</li>
+
+					<li class="scene">
+						<div class="movie" onclick="return true">
+							<div class="poster"></div>
+							<div class="info">
+								<header>
+									<h1>Hacker</h1>	
+								</header>
+								<p>
+									黑客的行为就像我小时候玩东西一样，对于一个玩具，拿到手，除了把玩，更吸引我的就是他的内部结构，随着我学到的东西越来越多，我相信我会做出更加正确的选择的。 V字仇杀队的主演造型确实可以作为黑客的头像，因为他象征了当我们面对一些新出现的事物时，勇于发现他背后的东西，当遇到不公的事情无所畏惧，用智慧和毅力战胜它，这是我所理解的黑客精神。
+								</p>
+							</div>
+						</div>
+					</li>
+
+					<li class="scene">
+						<div class="movie" onclick="return true">
+							<div class="poster"></div>
+							<div class="info">
+								<header>
+									<h1>The Stars</h1>
+								</header>
+								<p>
+									我喜欢看漫威电影，漫画，X战警，我喜欢幻想，我现在对过去做过的梦印象最深刻的除了白天看鬼片，晚上做噩梦之外的鬼印象深外，剩下的就是我我现实的场景里，努力蹬腿，同时身体向着天上飞去的情景了。我一直喜欢幻想，但是不知道为什么随着年龄的增长，我不能再像小时候一样随时随地进入幻想状态，取而代之的是按部就班的学习生活，同时时间也越来越少，同样是24小时，体验却完全不同，以前的日子是无聊，奇妙的，现在是充实的，但是伴随的是自我意识的淡薄，我想缺少想象力滋润的生活是索然无味的把，所以我寄希望与太空，希望在探索中找寻我的想象力。
+								</p>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div><!-- /wrapper -->
+		</div><!-- /container -->
+	</body>
+</html>
